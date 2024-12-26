@@ -44,7 +44,11 @@ This project is a simple **finance logger** built using TypeScript. Users can ad
 
    If you want the compiled JavaScript file to have a different name, specify it explicitly:
    ```bash
-   tsc sandbox.ts --outFile customName.js
+   tsc sandbox.ts customName.js
+   ```
+   To start compilation in watch mode type:
+   ```bash
+   tsc sandbox.ts -w
    ```
 
 5. **Open `index.html` in Live Server:**
