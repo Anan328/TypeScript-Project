@@ -1,4 +1,4 @@
-var x = "hello typeScript";
+var x = "hello world of typeScript!!";
 console.log(x);
 var inputs = document.querySelectorAll('input');
 console.log(inputs);
