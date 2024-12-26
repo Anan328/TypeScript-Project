@@ -11,8 +11,8 @@ A simple TypeScript project that allows users to log their financial transaction
 ## Technologies Used
 
 - TypeScript
-- Node.js (if applicable)
-- Express.js (if applicable)
+- CSS
+- HTML
 - GitHub for version control
 
 ## Setup
