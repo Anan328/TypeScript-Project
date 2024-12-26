@@ -5,7 +5,6 @@ console.log(x);
 const circ = (diameter: number) => {
     return diameter * Math.PI;
 }
-
 console.log(circ(7));
 
 // arrays
@@ -55,6 +54,73 @@ myObj.score = 99; // possible
 // myObj['name'] = 3 // not possible
 
 console.log(myObj);
+
+
+// Explicit Types
+
+let mychar: String;
+
+let age:number;
+
+let check:boolean;
+
+
+mychar = 'hello'; check = true;
+
+
+// Explicit Types: arrays
+
+let nums : number[] = []; // we declare it as an empty array because if we try to push it will show error in webrowser console
+
+nums = [1,2,3,4,5];
+
+// Explicit Types: union types
+
+let id : (String | number); // or let id : String | number; 
+id = '2'; id = 2; // both possible
+console.log(id);
+
+let mixed : (string | number) [] = []; // here paranthesis is must
+mixed.push('hello');
+mixed.push(4);
+// mixed.push(true); // error
+console.log(mixed);
+
+
+// Explicit Types: Object
+let record: object= {};
+
+record = {
+    name : 'anan',
+    id : 2
+}
+// record = [] ; // possible because array is an object
+// record = '' ; // not possible
+console.log(record);
+
+// defining type for an object
+
+let ObjectSchema : {
+    name : String,
+    id : number,
+    check : boolean
+}
+
+ObjectSchema = {
+    name : 'anan',
+    id : 2,
+    check : true
+}
+console.log(ObjectSchema);
+
+
+let obj2 : {name : String ,id : number | String ,check : boolean} = {
+    name: "Asad",
+    id: 3,
+    check: false
+}
+ console.log(obj2);
+ 
 
 
 
