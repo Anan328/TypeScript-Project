@@ -1,7 +1,11 @@
 var x = "hello world of typeScript!!";
 console.log(x);
-var inputs = document.querySelectorAll('input');
-console.log(inputs);
-inputs.forEach(function (input) {
-    console.log(input);
-});
+// const inputs = document.querySelectorAll('input');
+// console.log(inputs);
+// inputs.forEach((input)=>{
+//     console.log(input);
+// })
+var circ = function (diameter) {
+    return diameter * Math.PI;
+};
+console.log(circ(7));
