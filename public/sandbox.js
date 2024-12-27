@@ -1,19 +1,20 @@
-var x = "hello world of typeScript!!";
+"use strict";
+const x = "hello world of typeScript!!";
 console.log(x);
-var circ = function (diameter) {
+const circ = (diameter) => {
     return diameter * Math.PI;
 };
 console.log(circ(7));
 // arrays
-var names = ['anan', 'rehmat', 'asad'];
+let names = ['anan', 'rehmat', 'asad'];
 // names = 'string' // not possible, we cannot change array to string
 names.push('dua'); // possible
 // names.push(3); // not possible
-var mixedArray = [4, 'anan', 'script'];
+let mixedArray = [4, 'anan', 'script'];
 mixedArray.push("JS"); // possible
 mixedArray.push(2); // possible
 // Objects
-var myObj = {
+let myObj = {
     name: 'ANAN',
     score: 98,
     status: true,
@@ -37,26 +38,26 @@ myObj.score = 99; // possible
 // myObj['name'] = 3 // not possible
 console.log(myObj);
 // Explicit Types
-var mychar;
-var age;
-var check;
+let mychar;
+let age;
+let check;
 mychar = 'hello';
 check = true;
 // Explicit Types: arrays
-var nums = []; // we declare it as an empty array because if we try to push it will show error in webrowser console
+let nums = []; // we declare it as an empty array because if we try to push it will show error in webrowser console
 nums = [1, 2, 3, 4, 5];
 // Explicit Types: union types
-var id; // or let id : String | number; 
+let id; // or let id : String | number; 
 id = '2';
 id = 2; // both possible
 console.log(id);
-var mixed = []; // here paranthesis is must
+let mixed = []; // here paranthesis is must
 mixed.push('hello');
 mixed.push(4);
 // mixed.push(true); // error
 console.log(mixed);
 // Explicit Types: Object
-var record = {};
+let record = {};
 record = {
     name: 'anan',
     id: 2
@@ -65,33 +66,33 @@ record = {
 // record = '' ; // not possible
 console.log(record);
 // defining type for an object
-var ObjectSchema;
+let ObjectSchema;
 ObjectSchema = {
     name: 'anan',
     id: 2,
     check: true
 };
 console.log(ObjectSchema);
-var obj2 = {
+let obj2 = {
     name: "Asad",
     id: 3,
     check: false
 };
 console.log(obj2);
 // any type
-var variable; // used in rare cases
+let variable; // used in rare cases
 variable = 25; // Valid
 variable = "twenty-five"; // Also valid
 variable = true; // Still valid
 console.log(variable);
-var mixedArray1 = [];
+let mixedArray1 = [];
 mixedArray1.push('1');
 mixedArray1.push(1);
 mixedArray1.push(true);
-mixedArray1.forEach(function (i) {
+mixedArray1.forEach((i) => {
     console.log(i);
 });
-var mixedObj = {
+let mixedObj = {
     name: 'Anaan',
     id: 2
 };
