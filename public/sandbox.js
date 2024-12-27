@@ -47,7 +47,7 @@ check = true;
 let nums = []; // we declare it as an empty array because if we try to push it will show error in webrowser console
 nums = [1, 2, 3, 4, 5];
 // Explicit Types: union types
-let id; // or let id : String | number; 
+let id; // or let id : string | number; 
 id = '2';
 id = 2; // both possible
 console.log(id);
@@ -97,6 +97,25 @@ let mixedObj = {
     id: 2
 };
 mixedObj = []; // valid
+// Function Basics
+let greet;
+greet = (firstname, E_id) => {
+    console.log("hello!! ", firstname);
+    console.log(E_id);
+};
+greet("Anaan");
+greet("Anaan", 2);
+greet = [1, 2, 3]; // also valid
+let greet1 = (firstname, E_id = 1) => {
+    console.log("hello!! ", firstname);
+    console.log(E_id);
+};
+greet1("Anaan");
+const minus = (a, b) => {
+    return a - b;
+};
+let result = minus(10, 5);
+// result = "subtract"; // not valid
 // const inputs = document.querySelectorAll('input');
 // console.log(inputs);
 // inputs.forEach((input)=>{

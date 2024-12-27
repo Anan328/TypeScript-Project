@@ -58,7 +58,7 @@ console.log(myObj);
 
 // Explicit Types
 
-let mychar: String;
+let mychar: string;
 
 let age:number;
 
@@ -76,7 +76,7 @@ nums = [1,2,3,4,5];
 
 // Explicit Types: union types
 
-let id : (String | number); // or let id : String | number; 
+let id : (string | number); // or let id : string | number; 
 id = '2'; id = 2; // both possible
 console.log(id);
 
@@ -102,7 +102,7 @@ console.log(record);
 // defining type for an object
 
 let ObjectSchema : {
-    name : String,
+    name : string,
     id : number,
     check : boolean
 }
@@ -115,7 +115,7 @@ ObjectSchema = {
 console.log(ObjectSchema);
 
 
-let obj2 : {name : String ,id : number | String ,check : boolean} = {
+let obj2 : {name : string ,id : number | string ,check : boolean} = {
     name: "Asad",
     id: 3,
     check: false
@@ -152,6 +152,36 @@ let mixedObj : any  = {
 
 mixedObj = []; // valid
 
+
+// Function Basics
+
+let greet : Function | number[];
+
+greet = (firstname: string, E_id?: number)=>{ // ? means optional parameter // put at end
+    console.log("hello!! ",firstname);
+    console.log(E_id);
+    
+}
+greet("Anaan");
+greet("Anaan",2);
+
+greet = [1,2,3]; // also valid
+
+let greet1 = (firstname: string, E_id : number = 1): void=>{ // deafult value without ?  // put at end
+    console.log("hello!! ",firstname);
+    console.log(E_id);
+    
+}
+
+greet1("Anaan");
+
+const minus = (a : number , b : number) : number=>{ // : number  means return type is number , not compulsory
+    return a - b;
+}
+
+let result = minus(10,5);
+
+// result = "subtract"; // not valid
 
 // const inputs = document.querySelectorAll('input');
 // console.log(inputs);
