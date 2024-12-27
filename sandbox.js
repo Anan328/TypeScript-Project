@@ -78,6 +78,24 @@ var obj2 = {
     check: false
 };
 console.log(obj2);
+// any type
+var variable; // used in rare cases
+variable = 25; // Valid
+variable = "twenty-five"; // Also valid
+variable = true; // Still valid
+console.log(variable);
+var mixedArray1 = [];
+mixedArray1.push('1');
+mixedArray1.push(1);
+mixedArray1.push(true);
+mixedArray1.forEach(function (i) {
+    console.log(i);
+});
+var mixedObj = {
+    name: 'Anaan',
+    id: 2
+};
+mixedObj = []; // valid
 // const inputs = document.querySelectorAll('input');
 // console.log(inputs);
 // inputs.forEach((input)=>{
