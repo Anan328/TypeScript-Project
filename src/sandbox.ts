@@ -200,6 +200,38 @@ let myObj1 : objAlias;
 //     uid : 2
 // }
 
+
+// Function Signatures: Define the structure of a function, including parameter and return types.
+
+let myFunction : (a : string, b : string) => void;
+myFunction = (a : string, b : string) =>{ // : string is not necessary
+    console.log(`${a} and ${b}`);
+}
+
+myFunction("a1","b2");
+
+let add : (a : number , b : number) =>number ; // returns number
+
+// add = (a,b)=>{
+//     return a+b
+// }
+
+add = function (a,b){
+    return a+b;
+};
+
+type AddFunction = (a: number, b: number) => number;
+
+const sum: AddFunction = (a, b) => {
+    return a + b;
+};
+
+let logDetails: (obj: {name: string, age: number}) => void;
+
+logDetails = (ninja: {name: string, age: number}) => {
+  console.log(`${ninja.name} is ${ninja.age} years old`);
+}
+
 // const inputs = document.querySelectorAll('input');
 // console.log(inputs);
 
