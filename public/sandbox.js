@@ -115,7 +115,15 @@ const minus = (a, b) => {
     return a - b;
 };
 let result = minus(10, 5);
-// result = "subtract"; // not valid
+const display = (name, Emp_id) => {
+    console.log(`Welcome ${name}`);
+};
+display("Anan");
+let myObj1;
+// let myObj1 : objAlias = {
+//     name : 'Anan',
+//     uid : 2
+// }
 // const inputs = document.querySelectorAll('input');
 // console.log(inputs);
 // inputs.forEach((input)=>{

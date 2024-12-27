@@ -180,8 +180,25 @@ const minus = (a : number , b : number) : number=>{ // : number  means return ty
 }
 
 let result = minus(10,5);
-
 // result = "subtract"; // not valid
+
+// Type Aliases
+// Type Aliases: Used to create custom types for better readability and reusability.
+type  myTypeAliases = string | number;
+type objAlias = {name : string , uid : number};
+
+const display = (name : string, Emp_id ?  : myTypeAliases)=>{ // here type for Emp_id is string | number and is opyional as specified by ?
+    console.log(`Welcome ${name}`);
+    
+}
+display("Anan");
+
+let myObj1 : objAlias;
+
+// let myObj1 : objAlias = {
+//     name : 'Anan',
+//     uid : 2
+// }
 
 // const inputs = document.querySelectorAll('input');
 // console.log(inputs);
