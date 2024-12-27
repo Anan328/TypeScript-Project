@@ -88,6 +88,7 @@ console.log(mixed);
 
 
 // Explicit Types: Object
+
 let record: object= {};
 
 record = {
@@ -122,8 +123,34 @@ let obj2 : {name : String ,id : number | String ,check : boolean} = {
  console.log(obj2);
  
 
+// any type
+
+let variable: any; // used in rare cases
+
+variable = 25;           // Valid
+variable = "twenty-five"; // Also valid
+variable = true;          // Still valid
+
+console.log(variable);
+
+let mixedArray1 : any[] = [];
+
+mixedArray1.push('1');
+mixedArray1.push(1);
+mixedArray1.push(true);
+
+mixedArray1.forEach((i)=>{
+    console.log(i);
+    
+})
 
 
+let mixedObj : any  = {
+    name: 'Anaan',
+    id : 2
+}
+
+mixedObj = []; // valid
 
 
 // const inputs = document.querySelectorAll('input');
