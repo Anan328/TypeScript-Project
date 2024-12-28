@@ -1,30 +1,5 @@
-// Interface: Defines the structure of an object (properties/methods), used for object shapes and extension.
-// Type Aliases: Used to create custom types for better readability and reusability.
-// Difference:
-// 1. Interface supports declaration merging and extending other interfaces.
-// 2. Type alias is more flexible (can define unions, intersections), but doesn’t support declaration merging.
-let me = {
-    name: "Anaan",
-    age: 23,
-    speak: function (lang) {
-        console.log(`The ${this.name} speaks ${lang}`);
-    },
-    spend: (num) => (num)
-};
-console.log(me);
 import { Invoice } from './classes/invoice.js';
-const invOne = new Invoice('mario', 'work on the mario website', 250);
-const invTwo = new Invoice('luigi', 'work on the luigi website', 300);
-// console.log(invOne, invTwo);
-let invoices = []; // only objects created using Invoice class can be added to this array
-invoices.push(invOne);
-invoices.push(invTwo);
-invoices.forEach(inv => {
-    console.log(inv.client, inv.amount, inv.format());
-});
-// console.log(invoices);
-// invoices.push("hello"); // not valid
-// invoices.push({name:'test'}) // not valid
+import { Payment } from './classes/payment.js';
 const anchor = document.querySelector('a'); // handles null errors
 const ul = document.querySelector('.item-list');
 const form = document.querySelector('.new-item-form'); // The typecasting tells TypeScript that these element is specifically a form
@@ -34,6 +9,14 @@ const details = document.getElementById('details');
 const amount = document.getElementById('amount');
 // const button = document.querySelector('button')!; 
 form.addEventListener('submit', (e) => {
+    let doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice(ToFrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(ToFrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
     e.preventDefault();
     const li = document.createElement('li');
     const heading = document.createElement('h4');
