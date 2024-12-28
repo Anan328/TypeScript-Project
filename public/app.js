@@ -1,21 +1,14 @@
-"use strict";
-class Invoice {
-    constructor(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
-    format() {
-        return `${this.client} owes ${this.amount} for ${this.details}`;
-    }
-}
+import { Invoice } from './classes/invoice.js';
 const invOne = new Invoice('mario', 'work on the mario website', 250);
 const invTwo = new Invoice('luigi', 'work on the luigi website', 300);
-console.log(invOne, invTwo);
+// console.log(invOne, invTwo);
 let invoices = []; // only objects created using Invoice class can be added to this array
 invoices.push(invOne);
 invoices.push(invTwo);
-console.log(invoices);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format());
+});
+// console.log(invoices);
 // invoices.push("hello"); // not valid
 // invoices.push({name:'test'}) // not valid
 const anchor = document.querySelector('a'); // handles null errors
