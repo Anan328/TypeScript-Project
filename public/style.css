@@ -22,7 +22,7 @@ body{
   }
   li h4{
     color: #ff0aa7;
-    margin: 0;
+    margin: 8px;
     text-transform: capitalize;
   }
   li p{

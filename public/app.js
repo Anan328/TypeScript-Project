@@ -25,11 +25,13 @@ const type = document.querySelector('#type'); // The typecasting tells TypeScrip
 const ToFrom = document.querySelector('#tofrom');
 const details = document.getElementById('details');
 const amount = document.getElementById('amount');
-const button = document.querySelector('button');
+// const button = document.querySelector('button')!; 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const li = document.createElement('li');
-    li.innerHTML = `<b>Type:</b> ${type.value} <b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
+    const heading = document.createElement('h4');
+    heading.innerHTML = type.value;
+    li.appendChild(heading);
+    li.innerHTML += `<b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
     ul.appendChild(li);
-    console.log('test');
 });

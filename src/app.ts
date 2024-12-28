@@ -40,15 +40,16 @@ const type = document.querySelector('#type')as HTMLSelectElement; // The typecas
 const ToFrom = document.querySelector('#tofrom')as HTMLInputElement;
 const details = document.getElementById('details')as HTMLInputElement;
 const amount = document.getElementById('amount')!as HTMLInputElement;
-const button = document.querySelector('button')!; 
+// const button = document.querySelector('button')!; 
 
 form.addEventListener('submit',(e:Event)=>{
     e.preventDefault();
     const li = document.createElement('li');
-    li.innerHTML = `<b>Type:</b> ${type.value} <b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
+    const heading = document.createElement('h4');
+    heading.innerHTML = type.value;
+    li.appendChild(heading);
+    li.innerHTML += `<b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
     ul.appendChild(li);
-    console.log('test');
-    
     
 })
 
