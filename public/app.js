@@ -1,4 +1,5 @@
 import { Invoice } from './classes/invoice.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 import { Payment } from './classes/payment.js';
 const anchor = document.querySelector('a'); // handles null errors
 const ul = document.querySelector('.item-list');
@@ -8,6 +9,7 @@ const ToFrom = document.querySelector('#tofrom');
 const details = document.getElementById('details');
 const amount = document.getElementById('amount');
 // const button = document.querySelector('button')!; 
+const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     let doc;
     if (type.value === 'invoice') {
@@ -16,12 +18,13 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(ToFrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    // console.log(doc);
     e.preventDefault();
-    const li = document.createElement('li');
-    const heading = document.createElement('h4');
-    heading.innerHTML = type.value;
-    li.appendChild(heading);
-    li.innerHTML += `<b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
-    ul.appendChild(li);
+    list.render(doc, type.value, 'end');
+    // const li = document.createElement('li');
+    // const heading = document.createElement('h4');
+    // heading.innerHTML = type.value;
+    // li.appendChild(heading);
+    // li.innerHTML += `<b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
+    // ul.appendChild(li);
 });
