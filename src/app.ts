@@ -1,3 +1,28 @@
+// Interface: Defines the structure of an object (properties/methods), used for object shapes and extension.
+// Type Aliases: Used to create custom types for better readability and reusability.
+// Difference:
+// 1. Interface supports declaration merging and extending other interfaces.
+// 2. Type alias is more flexible (can define unions, intersections), but doesn’t support declaration merging.
+
+interface isPerson{
+    name: string,
+    age : number,
+    speak(a : string) : void;
+    spend(a : number) : number;
+}
+
+let me : isPerson = {
+    name : "Anaan",
+    age : 23,
+    speak: function(lang) {
+        console.log(`The ${this.name} speaks ${lang}`); 
+    },
+    spend : (num)=> (num)
+};
+
+console.log(me);
+
+
 import {Invoice} from './classes/invoice.js';
 
 const invOne = new Invoice('mario', 'work on the mario website', 250);

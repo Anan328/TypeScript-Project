@@ -187,7 +187,7 @@ let result = minus(10,5);
 type  myTypeAliases = string | number;
 type objAlias = {name : string , uid : number};
 
-const display = (name : string, Emp_id ?  : myTypeAliases)=>{ // here type for Emp_id is string | number and is opyional as specified by ?
+const display = (name : string, Emp_id ?  : myTypeAliases)=>{ // here type for Emp_id is string | number and is optional as specified by ?
     console.log(`Welcome ${name}`);
     
 }
