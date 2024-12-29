@@ -30,6 +30,53 @@ form.addEventListener('submit',(e:Event)=>{
         doc , type.value, 'end'
     );
 
+})    
+    // Generics
+
+    // Generics allow functions, classes, and interfaces to work with any data type while maintaining type safety.
+    // Use angle brackets (<T>) to define a placeholder for the type.
+
+    // const addUID = (obj: object) => {
+    //   let uid = Math.floor(Math.random() * 100);
+    //   return {...obj, uid};
+    // }
+
+    // const addUID = <T extends object>(obj: T) => {
+    //   let uid = Math.floor(Math.random() * 100);
+    //   return {...obj, uid};
+    // }
+
+const addUID = <T extends {name: string}>(obj: T) => { // T is conventional which stands for type but we can name it anything meaningful based on the context.
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+  }
+  
+  let docOne = addUID({name: 'yoshi', age: 40});
+  //let docTwo = addUID('shaun');
+  
+  console.log(docOne.name); // without genereic we could only access docOne not docOne.name because we are not specifying what this object is and what properties it has 
+
+    // with interfaces
+interface Resource<T> { 
+    uid: number;
+    resourceName: string;
+    data: T; // here the data could be anything string,object or array so we use generic
+  }
+  
+  const docThree : Resource<object> = {
+    uid: 1, 
+    resourceName: 'person', 
+    data: { name: 'shaun' }
+  };
+  
+  const docFour: Resource<string[]> = {
+    uid: 1, 
+    resourceName: 'shoppingList', 
+    data: ['bread', 'milk']
+  };
+  
+  console.log(docThree, docFour);
+
 
     // const li = document.createElement('li');
     // const heading = document.createElement('h4');
@@ -38,5 +85,5 @@ form.addEventListener('submit',(e:Event)=>{
     // li.innerHTML += `<b>Name:</b> ${ToFrom.value} <b>Details:</b> ${details.value} <b>Amount (£):</b> ${amount.valueAsNumber} `; // here valueAsNumber turns it into a number because js by default converts it to the string
     // ul.appendChild(li);
     
-})
+
 
