@@ -15,16 +15,20 @@ const amount = document.getElementById('amount')!as HTMLInputElement;
 const list = new ListTemplate(ul);
 
 form.addEventListener('submit',(e:Event)=>{
+    e.preventDefault();
+
+    let values: [string, string, number]; // tuple // fixed data type once initialized
+    values = [ToFrom.value, details.value, amount.valueAsNumber];
 
     let doc : HasFormatter;
 
     if(type.value === 'invoice'){
-        doc = new Invoice(ToFrom.value,details.value,amount.valueAsNumber);
+        doc = new Invoice(... values); // passes elemnts individually and not the whole array
     }else{
-        doc = new Payment(ToFrom.value,details.value,amount.valueAsNumber);
+        doc = new Payment(... values);
     }
     // console.log(doc);
-    e.preventDefault();
+    
 
     list.render(
         doc , type.value, 'end'
@@ -110,6 +114,21 @@ console.log(One.resourceType); // 0 , here we could have manually typed 0 while 
 
 console.log(Two);
 console.log(Two.resourceType); // 3
+
+
+// TUPLES // fixed data type once initialized
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
+
+let tup: [string, number, boolean] = ['ryu', 25, true];
+// tup[0] = false; // not valid
+tup[0] = 'ken';
+
+let student: [string, number];
+//student = [23564, 'chun-li'];
+student = ['chun-li', 23564];
 
     // const li = document.createElement('li');
     // const heading = document.createElement('h4');

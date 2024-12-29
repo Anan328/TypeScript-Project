@@ -11,15 +11,17 @@ const amount = document.getElementById('amount');
 // const button = document.querySelector('button')!; 
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let values; // tuple // fixed data type once initialized
+    values = [ToFrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
-        doc = new Invoice(ToFrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values); // passes elemnts individually and not the whole array
     }
     else {
-        doc = new Payment(ToFrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     // console.log(doc);
-    e.preventDefault();
     list.render(doc, type.value, 'end');
 });
 // Generics
@@ -76,6 +78,17 @@ console.log(One);
 console.log(One.resourceType); // 0 , here we could have manually typed 0 while creating the object One but when project gets bigger we cannot remember them so we assign a name to constants using Enum
 console.log(Two);
 console.log(Two.resourceType); // 3
+// TUPLES // fixed data type once initialized
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
+let tup = ['ryu', 25, true];
+// tup[0] = false; // not valid
+tup[0] = 'ken';
+let student;
+//student = [23564, 'chun-li'];
+student = ['chun-li', 23564];
 // const li = document.createElement('li');
 // const heading = document.createElement('h4');
 // heading.innerHTML = type.value;
