@@ -34,6 +34,7 @@ form.addEventListener('submit', (e) => {
 //   return {...obj, uid};
 // }
 const addUID = (obj) => {
+    // T is conventional which stands for type but we can name it anything meaningful based on the context.
     let uid = Math.floor(Math.random() * 100);
     return Object.assign(Object.assign({}, obj), { uid });
 };
@@ -51,6 +52,30 @@ const docFour = {
     data: ['bread', 'milk']
 };
 console.log(docThree, docFour);
+// ENUMS
+// Enum defines a set of named constants with default numeric values starting from 0.
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+})(ResourceType || (ResourceType = {}));
+;
+const One = {
+    uid: 1,
+    resourceType: ResourceType.BOOK,
+    data: { title: 'name of the wind' }
+};
+const Two = {
+    uid: 10,
+    resourceType: ResourceType.DIRECTOR,
+    data: { title: 'name of the wind' }
+};
+console.log(One);
+console.log(One.resourceType); // 0 , here we could have manually typed 0 while creating the object One but when project gets bigger we cannot remember them so we assign a name to constants using Enum
+console.log(Two);
+console.log(Two.resourceType); // 3
 // const li = document.createElement('li');
 // const heading = document.createElement('h4');
 // heading.innerHTML = type.value;

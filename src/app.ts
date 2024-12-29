@@ -46,7 +46,10 @@ form.addEventListener('submit',(e:Event)=>{
     //   return {...obj, uid};
     // }
 
-const addUID = <T extends {name: string}>(obj: T) => { // T is conventional which stands for type but we can name it anything meaningful based on the context.
+const addUID = <T extends {name: string}>(obj: T) => { // captures whatever item / properties we pass to the function
+
+    // T is conventional which stands for type but we can name it anything meaningful based on the context.
+
     let uid = Math.floor(Math.random() * 100);
     return {...obj, uid};
   }
@@ -77,6 +80,36 @@ interface Resource<T> {
   
   console.log(docThree, docFour);
 
+ 
+   // ENUMS
+
+   // Enum defines a set of named constants with default numeric values starting from 0.
+
+
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR };
+
+interface Resources<T> {
+  uid: number;
+  resourceType: ResourceType;
+  data: T;
+}
+
+const One: Resources<object> = {
+  uid: 1,
+  resourceType: ResourceType.BOOK,
+  data: { title: 'name of the wind' }
+}
+const Two: Resources<object> = {
+  uid: 10,
+  resourceType: ResourceType.DIRECTOR,
+  data: { title: 'name of the wind' }
+}
+
+console.log(One);
+console.log(One.resourceType); // 0 , here we could have manually typed 0 while creating the object One but when project gets bigger we cannot remember them so we assign a name to constants using Enum
+
+console.log(Two);
+console.log(Two.resourceType); // 3
 
     // const li = document.createElement('li');
     // const heading = document.createElement('h4');
